@@ -290,6 +290,8 @@ export default {
         trueModalWidth,
         trueModalHeight
       } = this
+      
+      if
 
       const maxLeft = viewportWidth - trueModalWidth
       const maxTop = Math.max(viewportHeight - trueModalHeight, 0)
@@ -299,7 +301,9 @@ export default {
 
       return {
         left: parseInt(inRange(0, maxLeft, left)),
-        top: parseInt(inRange(0, maxTop, top))
+        top: !trueModalHeight && this.isAutoHeight
+          ? undefined
+          : parseInt(inRange(0, maxTop, top))
       }
     },
     /**
